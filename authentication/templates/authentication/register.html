@@ -6,26 +6,27 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
         <div class="card mt-5">
-
             <div class="card-body">
-
                 <div class="card-title py-3">
                     <h4 class="text-center">
                         Get started with your analytics account
                     </h4>
                 </div>
 
-                <div class="form" method="POST">
+                <form action="{% url 'authentication:register' %}" method="POST">
+                    {% csrf_token %}
+
+                    {% include "authentication/messages.html" %}
                     <div class="form-group">
                         <label for="usernameField">Username</label>
                         <input type="text" name="username" placeholder="Username" id="usernameField"
-                            class="form-control">
+                            value="{{dataValues.username}}" class="form-control">
                         <div class="usernamefeedBackArea invalid-feedback"></div>
                     </div>
                     <div class="form-group">
                         <label for="emailField">Your Email Address</label>
                         <input type="email" name="email" placeholder="name@email.com" id="emailField"
-                            class="form-control">
+                            value="{{dataValues.email}}" class="form-control">
                         <div class="emailfeedBackArea invalid-feedback"></div>
                     </div>
                     <div class="form-group">
@@ -39,12 +40,11 @@
                         <input type="password" name="password2" placeholder="Please confirm your password"
                             id="password2Field" class="form-control">
                     </div>
-
-                </div>
+                    <input type="submit" value="Register" class="btn btn-block btn-primary submit-btn">
+                </form>
 
             </div>
 
-            <input type="submit" value="Register" class="btn btn-block btn-primary ">
         </div>
     </div>
     <div class="col-md-4"></div>

@@ -9,6 +9,7 @@ urlpatterns = [
     path("register/", views.register, name="register"),
     path("validate_username/", views.username_validation, name="validate_username"),
     path("validate_email/", views.email_validation, name="validate_email"),
+    path("activate_account/", views.account_verification, name="activate_account"),
     # path(
     #     "validate_username/",
     #     csrf_exempt(UsernameValidationView.as_view()),

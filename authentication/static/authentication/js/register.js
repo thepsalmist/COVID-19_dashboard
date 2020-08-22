@@ -4,6 +4,7 @@ const usernameField = document.querySelector("#usernameField");
 const usernamefeedbackArea = document.querySelector(".usernamefeedBackArea");
 const emailField = document.querySelector('#emailField');
 const emailfeedbackArea = document.querySelector(".emailfeedBackArea");
+const submitBtn = document.querySelector(".submit-btn");
 
 
 //add keyup event listner
@@ -25,9 +26,13 @@ usernameField.addEventListener('keyup', (e) => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.username_error) {
+                    submitBtn.disabled = true;
                     usernameField.classList.add("is-invalid");
                     usernamefeedbackArea.style.display = 'block';
                     usernamefeedbackArea.innerHTML = `<p>${data.username_error}</p>`
+                }
+                else {
+                    submitBtn.removeAttribute("disabled");
                 }
             });
 
@@ -38,7 +43,6 @@ usernameField.addEventListener('keyup', (e) => {
 //add event listener to emailvalidator
 emailField.addEventListener('keyup', (e) => {
     const emailValue = e.target.value;
-    console.log(emailValue);
 
     emailField.classList.remove("is-invalid");
     emailfeedbackArea.style.display = 'none';
@@ -51,13 +55,17 @@ emailField.addEventListener('keyup', (e) => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log("emailValue", emailValue);
                 if (data.email_error) {
+                    submitBtn.disabled = true;
                     emailField.classList.add("is-invalid");
                     emailfeedbackArea.style.display = 'block';
                     emailfeedbackArea.innerHTML = `<p>${data.email_error}</p>`
 
                 }
+                else {
+                    submitBtn.removeAttribute("disabled");
+                }
             });
     }
 });
+
