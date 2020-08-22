@@ -1,10 +1,10 @@
-# Django Boilerplate
+# COVID-19 Dashboard App
 
 #### By Xavier Frankline.
 
 ## Description
 
-Django Boilerplate is an application that helps users easen their django project setup for multiple environments.
+An Django app to display COVID-19 data
 
 ## Setup and Installation Requirements
 
@@ -12,19 +12,3 @@ Django Boilerplate is an application that helps users easen their django project
 
 -   python3.6
 -   pip
-
-### Cloning
-
--   In your terminal:
-
-          $ git clone https://github.com/thepsalmist/django_boileplate.git
-          $ cd django_boilerplate
-          $ create a vitual environment 
-          $ pip install -r requirements.txt
-
-## Running the Application
-
--   To rename the project:
-
-          $ python manage.py rename new_project {your project_name}
-          
