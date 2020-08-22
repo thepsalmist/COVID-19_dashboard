@@ -27,6 +27,7 @@ SECRET_KEY = config("SECRET_KEY")
 # Application definition
 
 INSTALLED_APPS = [
+    "authentication.apps.AuthenticationConfig",
     "core.apps.CoreConfig",
     "django.contrib.admin",
     "django.contrib.auth",

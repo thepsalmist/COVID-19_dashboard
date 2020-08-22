@@ -1,0 +1,52 @@
+{% extends 'authentication/base_auth.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="card mt-5">
+
+            <div class="card-body">
+
+                <div class="card-title py-3">
+                    <h4>
+                        Get started with your analytics account
+                    </h4>
+                </div>
+
+                <div class="form" method="POST">
+                    <div class="form-group">
+                        <label for="usernameField">Username</label>
+                        <input type="text" name="username" placeholder="Username" id="usernameField"
+                            class="form-control">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailField">Your Email Address</label>
+                        <input type="email" name="email" placeholder="name@email.com" id="emailField"
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordField">Your Password</label>
+                        <input type="password" name="password" placeholder="Please enter your password"
+                            id="passwordField" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="usernameField">Confirm Password</label>
+                        <input type="password" name="password2" placeholder="Please confirm your password"
+                            id="password2Field" class="form-control">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <input type="submit" value="Register" class="btn btn-block btn-primary ">
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<script src="{% static 'authentication/js/register.js' %}"></script>
+{% endblock %}
