@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="row">
+<div class="row mt-5">
     <div class="col-md-4"></div>
     <div class="col-md-4">
         <div class="card mt-5">
@@ -10,7 +10,7 @@
             <div class="card-body">
 
                 <div class="card-title py-3">
-                    <h4>
+                    <h4 class="text-center">
                         Get started with your analytics account
                     </h4>
                 </div>
@@ -20,17 +20,19 @@
                         <label for="usernameField">Username</label>
                         <input type="text" name="username" placeholder="Username" id="usernameField"
                             class="form-control">
-                        <div class="invalid-feedback"></div>
+                        <div class="usernamefeedBackArea invalid-feedback"></div>
                     </div>
                     <div class="form-group">
                         <label for="emailField">Your Email Address</label>
                         <input type="email" name="email" placeholder="name@email.com" id="emailField"
                             class="form-control">
+                        <div class="emailfeedBackArea invalid-feedback"></div>
                     </div>
                     <div class="form-group">
                         <label for="passwordField">Your Password</label>
                         <input type="password" name="password" placeholder="Please enter your password"
                             id="passwordField" class="form-control">
+
                     </div>
                     <div class="form-group">
                         <label for="usernameField">Confirm Password</label>

@@ -1,18 +1,19 @@
 
 //username field event listener
 const usernameField = document.querySelector("#usernameField");
-const feedbackArea = document.querySelector(".invalid-feedback");
+const usernamefeedbackArea = document.querySelector(".usernamefeedBackArea");
+const emailField = document.querySelector('#emailField');
+const emailfeedbackArea = document.querySelector(".emailfeedBackArea");
 
 
 //add keyup event listner
 usernameField.addEventListener('keyup', (e) => {
-    console.log('99898988');
     //declare usernameValue const, fetches value at keyup
     const usernameValue = e.target.value;
 
-    console.log("usernameValue", usernameValue);
+    //
     usernameField.classList.remove("is-invalid");
-    feedbackArea.style.display = 'none';
+    usernamefeedbackArea.style.display = 'none';
 
 
     if (usernameValue.length > 0) {
@@ -25,11 +26,38 @@ usernameField.addEventListener('keyup', (e) => {
             .then((data) => {
                 if (data.username_error) {
                     usernameField.classList.add("is-invalid");
-                    feedbackArea.style.display = 'block';
-                    feedbackArea.innerHTML = `<p>${data.username_error}</p>`
+                    usernamefeedbackArea.style.display = 'block';
+                    usernamefeedbackArea.innerHTML = `<p>${data.username_error}</p>`
                 }
             });
 
     }
 
+});
+
+//add event listener to emailvalidator
+emailField.addEventListener('keyup', (e) => {
+    const emailValue = e.target.value;
+    console.log(emailValue);
+
+    emailField.classList.remove("is-invalid");
+    emailfeedbackArea.style.display = 'none';
+
+    if (emailValue > 0) {
+        //make API call
+        fetch("/auth/validate_email/", {
+            body: JSON.stringify({ email: emailValue }),
+            method: "POST",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("emailValue", emailValue);
+                if (data.email_error) {
+                    emailField.classList.add("is-invalid");
+                    emailfeedbackArea.style.display = 'block';
+                    emailfeedbackArea.innerHTML = `<p>${data.email_error}</p>`
+
+                }
+            });
+    }
 });
