@@ -111,3 +111,4 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = config("EMAIL_PORT")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
+LOGIN_URL = "authentication:login"

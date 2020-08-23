@@ -1,0 +1,25 @@
+{% extends "authentication/base_auth.html" %}
+{% block content %}
+<div class="row mt-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="card mt-5">
+            <div class="card-body">
+                <div class="card-title py-3">
+                    <h4 class="text-center">
+                        You have logged out of your account
+                    </h4>
+                </div>
+                <div>
+                    <a href="{% url 'authentication:login' %}"><input type="submit" value="Login"
+                            class="btn btn-block btn-primary submit-btn">
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+{% endblock %}

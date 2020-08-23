@@ -1,11 +1,48 @@
-{% extends 'authentication/base_auth.html' %}
-
+{% extends "authentication/base_auth.html" %}
 {% block content %}
-<div class="card">
-    <div class="card-body">
-        <h1>
-            Login
-        </h1>
+<div class="row mt-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="card mt-5">
+            <div class="card-body">
+                <div class="card-title py-3">
+                    <h4 class="text-center">
+                        Welcome To Analytica! Login
+                    </h4>
+                </div>
+
+                <form action="{% url 'authentication:login' %}" method="POST">
+                    {% csrf_token %}
+
+                    {% include "authentication/messages.html" %}
+                    <div class="form-group">
+                        <label for="usernameField">Username</label>
+                        <input type="text" name="username" placeholder="Username" id="usernameField"
+                            value="{{dataValues.username}}" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordField">Your Password</label>
+                        <input type="password" name="password" placeholder="Please enter your password"
+                            id="passwordField" class="form-control">
+                    </div>
+                    <input type="submit" value="Login" class="btn btn-block btn-primary submit-btn">
+                </form>
+                <div class="card-title pt-5">
+                    <p class="text-center">
+                        Are you a new user, Register for a free account today
+                    </p>
+                </div>
+                <a href="{% url 'authentication:register' %}">
+
+                    <input type="submit" value="Sign Up" class="btn btn-block btn-success submit-btn">
+                </a>
+
+
+            </div>
+
+        </div>
     </div>
+    <div class="col-md-4"></div>
 </div>
+
 {% endblock %}
