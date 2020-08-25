@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views import View
 from validate_email import validate_email
 from django.contrib import messages
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, send_mail
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.sites.shortcuts import get_current_site
@@ -113,7 +113,8 @@ def register(request):
                     )
                     email.send(fail_silently=False)
                     messages.success(
-                        request, f"Account created succesfully for {new_user.username} "
+                        request,
+                        f"Account created succesfully for {new_user.username}, login to your email to verify account ",
                     )
                     return redirect("authentication:login")
 
