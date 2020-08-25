@@ -2,7 +2,7 @@ from .base import *
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["nakala-analytica.herokuapp.com", "www.myhost.com"]
+ALLOWED_HOSTS = ["nakala-analytica.herokuapp.com", "127.0.0.1"]
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -14,7 +14,7 @@ DATABASES = {
         "USER": os.environ.get("DB_USER"),
         "PASSWORD": os.environ.get("DB_PASSWORD"),
         "HOST": os.environ.get("DB_HOST"),
-        "PORT": "",
+        "PORT": os.environ.get("DB_PORT"),
     }
 }
 
