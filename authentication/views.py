@@ -106,7 +106,7 @@ def register(request):
                         + " Welcome to Analytics. Use the link below to verify your email address \n"
                         + activate_link
                     )
-                    sender_email = config("DEFAUL_FROM_EMAIL")
+                    sender_email = config("DEFAULT_FROM_EMAIL")
 
                     email = EmailMessage(
                         email_subject, email_body, sender_email, [email],
