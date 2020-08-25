@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
+import dj_database_url
 from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -112,3 +114,5 @@ EMAIL_PORT = config("EMAIL_PORT")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
 LOGIN_URL = "authentication:login"
+
+django_heroku.settings(locals())
