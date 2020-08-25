@@ -1,4 +1,5 @@
 import json
+import os
 from django.shortcuts import redirect, render, reverse
 from django.contrib.auth.models import User
 from django.http import JsonResponse
@@ -10,7 +11,6 @@ from django.core.mail import EmailMessage
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.sites.shortcuts import get_current_site
-from decouple import config
 from django.contrib import auth
 from .utils import token_generator
 
@@ -106,7 +106,7 @@ def register(request):
                         + " Welcome to Analytics. Use the link below to verify your email address \n"
                         + activate_link
                     )
-                    sender_email = config("DEFAULT_FROM_EMAIL")
+                    sender_email = os.environ.get("DEFAULT_FROM_EMAIL")
 
                     email = EmailMessage(
                         email_subject, email_body, sender_email, [email],
