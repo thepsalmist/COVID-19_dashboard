@@ -112,11 +112,8 @@ def register(request):
                         email_subject, email_body, sender_email, [email],
                     )
                     email.send(fail_silently=False)
-                    messages.success(
-                        request,
-                        f"Account created succesfully for {new_user.username}, login to your email to verify account ",
-                    )
-                    return redirect("authentication:login")
+
+                    return redirect("authentication:activate_page")
 
     context = {"dataValues": request.POST}
     return render(request, "authentication/register.html", context)
@@ -188,4 +185,8 @@ def logout(request):
     if request.method == "POST":
         auth.logout(request)
         return render(request, "authentication/logout.html", context={})
+
+
+def activate_page(request):
+    return render(request, "authentication/activate_account.html", context={})
 

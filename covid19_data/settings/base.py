@@ -121,10 +121,3 @@ LOGIN_URL = "authentication:login"
 
 django_heroku.settings(locals())
 
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# EMAIL_HOST = "smtp.gmail.com"
-# EMAIL_HOST_USER = "76.thegreek@gmail.com"
-# EMAIL_HOST_PASSWORD = "#Thealchemist1994"
-# EMAIL_PORT = 587
-# DEFAULT_FROM_EMAIL = "76.thegreek@gmail.com"
-

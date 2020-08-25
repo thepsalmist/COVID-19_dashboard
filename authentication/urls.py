@@ -16,6 +16,7 @@ urlpatterns = [
     ),
     path("login/", views.login, name="login"),
     path("logout/", views.logout, name="logout"),
+    path("activate_page", views.activate_page, name="activate_page"),
     # path(
     #     "validate_username/",
     #     csrf_exempt(UsernameValidationView.as_view()),

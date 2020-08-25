@@ -13,12 +13,12 @@ Highcharts.getJSON('https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/sam
         },
 
         title: {
-            text: 'Covid-19 Infection by Country'
+            text: 'Covid-19 World Data'
         },
 
         legend: {
             title: {
-                text: 'Population density per km²',
+                text: 'Cases by country',
                 style: {
                     color: ( // theme
                         Highcharts.defaultOptions &&
@@ -46,7 +46,7 @@ Highcharts.getJSON('https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/sam
             padding: 0,
             pointFormat: '<span class="f32"><span class="flag {point.properties.hc-key}">' +
                 '</span></span> {point.name}<br>' +
-                '<span style="font-size:30px">{point.value}/km²</span>',
+                '<span style="font-size:30px">{point.value}/1000</span>',
             positioner: function () {
                 return { x: 0, y: 250 };
             }
@@ -61,7 +61,7 @@ Highcharts.getJSON('https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/sam
         series: [{
             data: data,
             joinBy: ['iso-a3', 'code3'],
-            name: 'Population density',
+            name: 'Cases Distribution',
             states: {
                 hover: {
                     color: '#a4edba'
