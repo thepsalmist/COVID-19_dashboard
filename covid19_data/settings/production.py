@@ -2,7 +2,7 @@ from .base import *
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["ip-address", "www.myhost.com"]
+ALLOWED_HOSTS = ["nakala-analytica.herokuapp.com", "www.myhost.com"]
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
